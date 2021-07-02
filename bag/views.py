@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
 
 from products.models import Product
+=======
+from django.shortcuts import render, redirect
+>>>>>>> 875e93c4b580e927e5ab8bdc76dce70f2a622ef0
 
 # Create your views here.
 
@@ -15,7 +19,10 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
+<<<<<<< HEAD
     product = Product.objects.get(pk=item_id)
+=======
+>>>>>>> 875e93c4b580e927e5ab8bdc76dce70f2a622ef0
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = None
@@ -36,6 +43,7 @@ def add_to_bag(request, item_id):
             bag[item_id] += quantity
         else:
             bag[item_id] = quantity
+<<<<<<< HEAD
             messages.success(request, f'Added {product.name} to your bag')
 
     request.session['bag'] = bag
@@ -89,3 +97,8 @@ def remove_from_bag(request, item_id):
 
     except Exception as e:
         return HttpResponse(status=500)
+=======
+
+    request.session['bag'] = bag
+    return redirect(redirect_url)
+>>>>>>> 875e93c4b580e927e5ab8bdc76dce70f2a622ef0
