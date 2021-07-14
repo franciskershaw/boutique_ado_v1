@@ -1,0 +1,1 @@
+web: gunicorn bougique_ado.wsgi:application
